@@ -1,4 +1,4 @@
-todo_list = [] # itis an empty list where each task is stored as a dictionary
+todo_list = [] # it is an empty list where each task is stored as a dictionary
 
 while True:
     print("\n--- TO-DO LIST MENU ---")
@@ -8,14 +8,14 @@ while True:
     print("4. Delete Task")
     print("5. Exit")
     
-    input = input("Choose an option: ")
+    choice = input("Choose an option: ")
 
-    if input == '1':
+    if choice == '1':
         task = input("Enter new task: ")
         todo_list.append({"task": task, "completed": False})
         print("Task added!")#if user chooses 1,a new task is added
 
-    elif input == '2':
+    elif choice == '2':
         if not todo_list:
             print("No tasks in the list.")
         else:
@@ -23,7 +23,7 @@ while True:
                 status = "✓" if todo_list[i]["completed"] else "✗"
                 print(f"{i+1}. {todo_list[i]['task']} [{status}]") #it tracks the  task whether it is completed or not
 
-    elif input == '3':
+    elif choice == '3':
         if not todo_list:
             print("No tasks to update.")
         else:
@@ -40,12 +40,12 @@ while True:
             except:
                 print("Please enter a valid number.")#if uses chooses 3, It update the given whether it is completed or not
 
-    elif input == '4':
+    elif choice == '4':
         if not todo_list:
             print("No tasks to delete.")
         else:
             for i in range(len(todo_list)):
-                status = "✓" if todo_list[i]["completed"] else "✗"
+                status = "✓" if todo_list[i]["completed"] else "Not Completed"
                 print(f"{i+1}. {todo_list[i]['task']} [{status}]")
             try:
                 task_num = int(input("Enter task number to delete: "))
@@ -57,7 +57,7 @@ while True:
             except:
                 print("Please enter a valid number.") #if user chooses number 4, it deletes the task using .pop(index)
 
-    elif input == '5':
+    elif choice == '5':
         print("Thank you for using me. Goodbye!")
         break
         #if user chooses 5, print exit message and stop the loop using break.
