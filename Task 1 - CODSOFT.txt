@@ -1,0 +1,68 @@
+todo_list = [] # itis an empty list where each task is stored as a dictionary
+
+while True:
+    print("\n--- TO-DO LIST MENU ---")
+    print("1. Add Task")
+    print("2. Track Tasks")
+    print("3. Update Complete")
+    print("4. Delete Task")
+    print("5. Exit")
+    
+    input = input("Choose an option: ")
+
+    if input == '1':
+        task = input("Enter new task: ")
+        todo_list.append({"task": task, "completed": False})
+        print("Task added!")#if user chooses 1,a new task is added
+
+    elif input == '2':
+        if not todo_list:
+            print("No tasks in the list.")
+        else:
+            for i in range(len(todo_list)):
+                status = "✓" if todo_list[i]["completed"] else "✗"
+                print(f"{i+1}. {todo_list[i]['task']} [{status}]") #it tracks the  task whether it is completed or not
+
+    elif input == '3':
+        if not todo_list:
+            print("No tasks to update.")
+        else:
+            for i in range(len(todo_list)):
+                status = "✓" if todo_list[i]["completed"] else "✗"
+                print(f"{i+1}. {todo_list[i]['task']} [{status}]")
+            try:
+                task_num = int(input("Enter task number to mark as complete: "))
+                if 1 <= task_num <= len(todo_list):
+                    todo_list[task_num - 1]["completed"] = True
+                    print("Task marked as complete!")
+                else:
+                    print("Invalid task number.")
+            except:
+                print("Please enter a valid number.")#if uses chooses 3, It update the given whether it is completed or not
+
+    elif input == '4':
+        if not todo_list:
+            print("No tasks to delete.")
+        else:
+            for i in range(len(todo_list)):
+                status = "✓" if todo_list[i]["completed"] else "✗"
+                print(f"{i+1}. {todo_list[i]['task']} [{status}]")
+            try:
+                task_num = int(input("Enter task number to delete: "))
+                if 1 <= task_num <= len(todo_list):
+                    removed = todo_list.pop(task_num - 1)
+                    print(f"Task '{removed['task']}' deleted!")
+                else:
+                    print("Invalid task number.")
+            except:
+                print("Please enter a valid number.") #if user chooses number 4, it deletes the task using .pop(index)
+
+    elif input == '5':
+        print("Thank you for using me. Goodbye!")
+        break
+        #if user chooses 5, print exit message and stop the loop using break.
+    else:
+        print("Invalid choice. Please enter a number between 1 and 5.")
+        #if the user enters anything else (like '9' or 'hello'), it prints an error message
+
+
