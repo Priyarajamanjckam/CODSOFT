@@ -1,0 +1,22 @@
+print('Simple Calculator')
+print('Hi! How can I help you?')
+operation = input('Enter the operation (+,-,*,/) : ')
+num1 = float(input('Enter the first number : '))
+num2 = float(input('Enter the second number : '))
+if operation == '+':
+    ans= num1+num2
+    print('Answer:',ans)
+elif operation == '-':
+    ans= num1-num2
+    print('Answer:',ans)
+elif operation == '*':
+    ans= num1*num2
+    print('Answer: ',ans)
+elif operation == '/':
+    if num2!=0:
+        ans =num1/num2
+        print('Answer: ',ans)
+    else:
+        print('Invalid number. Enter a new number')
+else:
+    print('Invalid Operation. Enter a new operation')
